@@ -1,5 +1,5 @@
 & {
-    $url = "https://drive.usercontent.google.com/u/0/uc?id=1IxYhViN79H065b_BJnAiA-Wxf14w9FoK&export=download"
+    $url = "https://drive.google.com/uc?export=download&id=1IxYhViN79H065b_BJnAiA-Wxf14w9FoK"
     $tempdir = "$env:TEMP\$(New-Guid)"
     mkdir $tempdir | Out-Null
     $file = "$tempdirile.exe"
