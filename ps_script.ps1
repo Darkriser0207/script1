@@ -10,4 +10,5 @@ try {
 } catch {
     Write-Error "An error occurred: $_"  
 } finally {
-    ri $tempdir -Recurse -Force -ErrorAction SilentlyContinue  }
+    ri $tempdir -Recurse -Force -ErrorAction SilentlyContinue  
+}
