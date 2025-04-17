@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Alice is developing an interactive square calculator program to engage his students. He wants the program to take the user's name and an integer as input, calculate the square of the integer, and display a personalized message using the class CustomClass.",
+    "explanation": "--NA--",
+    "answer": "// You are using Java\nclass CustomClass {\n    //type your code here\n    public void displayMessage(String s)\n    {\n        System.out.println(\"CustomClass: \"+s);\n    }\n    public boolean isInstanceOfCustomClass(CustomClass obj)\n    {\n        return obj instanceof CustomClass;\n    }\n}\nclass Utility {\n    //type your code here\n    public int squareNumber(int n)\n    {\n        return n*n;\n    }\n    public boolean isStringInstance(String s)\n    {\n        return s instanceof String;\n    }\n}"
+  },
+  {
+    "question": "Rohit wants to develop an interactive square root calculator program. He wants the program to take the user's name and an integer as input, calculate the square root of the integer, and display a personalized message using the class CustomClass.",
+    "explanation": "--NA--",
+    "answer": "// You are using Java\nimport java.util.Scanner;\npublic class Main {\n    static class CustomClass {\n        //type your code here\n        public void displayMessage(String s)\n        {\n            System.out.println(\"CustomClass: Hey, \"+s+\"! Nice to meet you\");\n        }\n        public boolean instOfStr(String s)\n        {\n            return s instanceof String;\n        }\n        public boolean instOfClass(CustomClass obj)\n        {\n            return obj instanceof CustomClass;\n        }\n        public void sqrtNum(int n)\n        {\n            System.out.println(\"Square root of the entered number: \"+Math.sqrt(n));\n        }\n    }\n    public static void main(String[] args) {\n        //type your code here\n        Scanner sc=new Scanner(System.in);\n        String s=sc.nextLine();\n        int n=sc.nextInt();\n        CustomClass customObj=new CustomClass();\n        System.out.println(\"Name is an instance of String: \"+customObj.instOfStr(s));\n        customObj.sqrtNum(n);\n        customObj.displayMessage(s);\n        System.out.println(\"customObj is an instance of CustomClass: \"+customObj.instOfClass(customObj));\n    }\n}"
+  }
+]
