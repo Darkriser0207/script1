@@ -18,6 +18,6 @@
     "question": "Monica is interested in finding a treasure but the key to opening is to get the sum of the main diagonal elements and secondary diagonal elements.",
     "explanation": "--NA--",
     "answer": "// You are using Java\nimport java.util.Scanner;\nclass DiagonalSum{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int[][] matrix=new int[n][n];\n        int mainDiagonalSum=0;\n        int secondaryDiagonalSum=0;\n        for (int i=0;i<n;i++){\n            for(int j=0;j<n;j++){\n                matrix[i][j]=sc.nextInt();\n                if (i==j){\n                    mainDiagonalSum+=matrix[i][j];\n                }\n                if(i+j==n-1){\n                    secondaryDiagonalSum+=matrix[i][j];\n                }\n            }\n        }\n        System.out.println(\"Sum of the main diagonal: \"+mainDiagonalSum);\n        System.out.println(\"Sum of the secondary diagonal: \"+secondaryDiagonalSum);\n        sc.close();\n    }\n}"
-  },
+  }
 ]
   
