@@ -1,12 +1,37 @@
 [
   {
-    "question": "Week 6 Programming Exercise 1: Recursion",
-    "explanation": "Solving problems using recursive functions",
-    "answer": "// Week 6 Exercise 1 Solution\npublic class Solution {\n    // Solution code goes here\n}"
+    "question": "Preethi is working on a project to automate sales tax calculations for items in a store. She wants to create a program that takes the price of an item and the sales tax rate as input and calculates the final price of the item after applying the sales tax.",
+    "explanation": "--NA--",
+    "answer": "// You are using Java\nclass SalesTaxCalculator {\n   //type your code here\n   public static int calculateFinalPrice(int price, int taxRate)\n   {\n       return price+((price*taxRate)/100);\n   }\n   public static double calculateFinalPrice(double price, double taxRate)\n   {\n       return price+((price*taxRate)/100);\n   }\n}"
   },
   {
-    "question": "Week 6 Programming Exercise 2: Dynamic Programming",
-    "explanation": "Optimizing recursive solutions with memoization",
-    "answer": "// Week 6 Exercise 2 Solution\npublic class Solution {\n    // Solution code goes here\n}"
+    "question": "Hari is working on a Java program for his homework to calculate the sum of two and three integers. Write a program that allows Hari to input two integers and three integers separately. Use overloaded methods called sum to calculate and display the sum for each case.",
+    "explanation": "--NA--",
+    "answer": "// You are using Java\nclass Summation {\n    //type your code here\n    public int sum(int a,int b)\n    {\n        return a+b;\n    }\n    public int sum(int a, int b, int c)\n    {\n        return a+b+c;\n    }\n}"
+  },
+  {
+    "question": "Ashok is creating a program that calculates the surface area of a sphere and a cube. There are specific instructions from his professor, that the program should use runtime polymorphism to handle the different shapes, and he needs your assistance for this.",
+    "explanation": "--NA--",
+    "answer": "// You are using Java\nimport java.util.Scanner;\nclass Polygon\n{\n    public void show()\n    {\n        \n    }\n}\nclass Sphere extends Polygon\n{\n    double radius;\n    public Sphere(double radius)\n    {\n        this.radius=radius;\n    }\n    public void show()\n    {\n        System.out.printf(\"Area of sphere: %.2f\\n\",(4*3.14*radius*radius));\n    }\n}\nclass Cube extends Polygon\n{\n    double side;\n    public Cube(double side)\n    {\n        this.side=side;\n    }\n    public void show()\n    {\n        System.out.printf(\"Area of cube: %.2f\\n\",(6*side*side));\n    }\n}\nclass Main\n{\n    public static void main(String[] args)\n    {\n        Scanner sc=new Scanner(System.in);\n        double radius=sc.nextDouble();\n        double side=sc.nextDouble();\n        Sphere s=new Sphere(radius);\n        Cube c=new Cube(side);\n        s.show();\n        c.show();\n    }\n}"
+  },
+  {
+    "question": "Hagrid needs a program capable of performing two calculations: square roots and cube roots.",
+    "explanation": "--NA--",
+    "answer": "// You are using Java\nimport java.util.Scanner;\nclass Main\n{\n    public static void calculateRoot(int n)\n    {\n        System.out.printf(\"%.1f\\n\",Math.sqrt(n));\n    }\n    public static void calculateRoot(double n)\n    {\n        System.out.printf(\"%.1f\\n\",Math.cbrt(n));\n    }\n    public static void main(String[] args)\n    {\n        Scanner sc=new Scanner(System.in);\n        String s=sc.nextLine();\n        if(s.contains(\".\"))\n        {\n            double d=Double.parseDouble(s);\n            calculateRoot(d);\n        }\n        else\n        {\n            int n=Integer.parseInt(s);\n            calculateRoot(n);\n        }\n    }\n}"
+  },
+  {
+    "question": "An ice-cream vendor sells his ice-creams in a cone (radius r and height h) and square (side r) shaped containers. However, he is unsure of the quantity that can be filled in the two containers.",
+    "explanation": "--NA--",
+    "answer": "// You are using Java\nimport java.util.Scanner;\nclass Main\n{\n    public void Quantity(int r, int h)\n    {\n        System.out.printf(\"%.2f\\n\",(0.33*Math.PI*r*r*h));\n    }\n    public void Quantity(int r)\n    {\n        System.out.printf(\"%.2f\\n\",(float)(r*r*r));\n    }\n    public static void main(String[] args)\n    {\n        Scanner sc=new Scanner(System.in);\n        Main m=new Main();\n        int choice=sc.nextInt();\n        if(choice==1)\n        {\n            int r=sc.nextInt();\n            m.Quantity(r);\n        }\n        else if(choice==2)\n        {\n            int r=sc.nextInt();\n            int h=sc.nextInt();\n            m.Quantity(r,h);\n        }\n    }\n}"
+  },
+  {
+    "question": "Ria is developing a simple educational game for children to test their knowledge of uppercase and lowercase letters. The game will present four letters, and the children will input their answers for each letter. Her task is to implement a program that calculates the score based on the following rules:",
+    "explanation": "--NA--",
+    "answer": "// You are using Java\nimport java.util.Scanner;\nclass QuizGame\n{\n    public void game()\n    {\n        \n    }\n}\nclass StudentScore extends QuizGame\n{\n    public void game()\n    {\n        Scanner sc=new Scanner(System.in);\n        String s=sc.nextLine();\n        String[] letters=s.split(\"\");\n        int score=0;\n        for(String ch:letters)\n        {\n            char c=ch.charAt(0);\n            if(Character.isUpperCase(c))\n            {\n                score+=10;\n            }\n            else if(Character.isLowerCase(c))\n            {\n                score-=5;\n            }\n        }\n        System.out.println(\"Score: \"+score);\n    }\n    public static void main(String[] args)\n    {\n        StudentScore ss=new StudentScore();\n        ss.game();\n    }\n}"
+  },
+  {
+    "question": "Renu works for a retail store that sells two types of items: wooden items and electronics. The store needs a program to calculate the total amount for a customer's purchase based on their choice of item type and the quantity or cost of the items.",
+    "explanation": "--NA--",
+    "answer": "// You are using Java\nimport java.util.Scanner;\nclass ItemType\n{\n    public double calculateAmount()\n    {\n        return 0.0;\n    }\n}\nclass Wooden extends ItemType\n{\n    private int num;\n    private double cost;\n    public Wooden(int num,double cost)\n    {\n        this.num=num;\n        this.cost=cost;\n    }\n    public double calculateAmount()\n    {\n        return num*cost;\n    }\n}\nclass Electronics extends ItemType\n{\n    private double cost;\n    public Electronics(double cost)\n    {\n        this.cost=cost;\n    }\n    public double calculateAmount()\n    {\n        return 0.8*cost;\n    }\n}\nclass Main\n{\n    public static void main(String[] args)\n    {\n        Scanner sc=new Scanner(System.in);\n        int choice=sc.nextInt();\n        if(choice==1)\n        {\n            int num=sc.nextInt();\n            double cost=sc.nextDouble();\n            ItemType w=new Wooden(num,cost);\n            System.out.printf(\"%.2f%n\",w.calculateAmount());\n        }\n        else if(choice==2)\n        {\n            double cost=sc.nextDouble();\n            ItemType e=new Electronics(cost);\n            System.out.printf(\"%.2f%n\",e.calculateAmount());\n        }\n    }\n}"
   }
 ]
