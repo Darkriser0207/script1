@@ -23,7 +23,14 @@
     "question": "Robin is fascinated by ancient Roman numerals and wants to create a program to convert decimal numbers to Roman numerals. He needs your help to complete the program.",
     "explanation": "--NA--",
     "answer": "// You are using Java\nimport java.util.Scanner;\nclass Main\n{\n    public static String intToRoman(int num)\n    {\n        String[] romanSymbols={\"M\",\"CM\",\"D\",\"CD\",\"C\",\"XC\",\"L\",\"XL\",\"X\",\"IX\",\"V\",\"IV\",\"I\"};\n        int[] values={1000,900,500,400,100,90,50,40,10,9,5,4,1};\n        StringBuilder roman=new StringBuilder();\n        for(int i=0;i<values.length;i++)\n        {\n            while(num>=values[i])\n            {\n                roman.append(romanSymbols[i]);\n                num-=values[i];\n            }\n        }\n        return roman.toString();\n    }\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int num=sc.nextInt();\n        System.out.println(intToRoman(num));\n        sc.close();\n    }\n}"
-  }
+  },
+  {
+  "question": "Consider a scenario where you are tasked with organizing the different possible subsequences of a word into sorted order. You are given a string, and your goal is to find and display all the contiguous subsequences (subarrays) of that string.",
+  "explanation": "--NA--",
+  "answer": "import java.util.Scanner;\nclass Main\n{\n    public static void main(String[] args)\n    {\n        Scanner sc=new Scanner(System.in);\n        String s=sc.nextLine().toLowerCase();\n        sc.close();\n        int n=s.length();\n        int totalSubstrings=(n*(n+1))/2;\n        String[] substrings=new String[totalSubstrings];\n        int index=0;\n        for(int i=0;i<n;i++)\n        {\n            for(int j=i+1;j<=n;j++)\n            {\n                substrings[index++]=s.substring(i,j);\n            }\n        }\n        for(int i =0; i<totalSubstrings-1;i++)\n        {\n            for(int j=i+1;j<totalSubstrings;j++)\n            {\n                if(substrings[i].compareTo(substrings[j])>0)\n                {\n                    String temp=substrings[i];\n                    substrings[i]=substrings[j];\n                    substrings[j]=temp;\n                }\n            }\n        }\n        for(String sub:substrings)\n        {\n            System.out.println(sub);\n        }\n    }\n}"
+}
+
+  
 
 
 
