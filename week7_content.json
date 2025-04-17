@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Week 7 Programming Exercise 1: File I/O",
+    "explanation": "Reading from and writing to files",
+    "answer": "// Week 7 Exercise 1 Solution\npublic class Solution {\n    // Solution code goes here\n}"
+  },
+  {
+    "question": "Week 7 Programming Exercise 2: Exception Handling",
+    "explanation": "Managing errors and exceptions in code",
+    "answer": "// Week 7 Exercise 2 Solution\npublic class Solution {\n    // Solution code goes here\n}"
+  }
+]

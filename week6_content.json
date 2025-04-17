@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Week 6 Programming Exercise 1: Recursion",
+    "explanation": "Solving problems using recursive functions",
+    "answer": "// Week 6 Exercise 1 Solution\npublic class Solution {\n    // Solution code goes here\n}"
+  },
+  {
+    "question": "Week 6 Programming Exercise 2: Dynamic Programming",
+    "explanation": "Optimizing recursive solutions with memoization",
+    "answer": "// Week 6 Exercise 2 Solution\npublic class Solution {\n    // Solution code goes here\n}"
+  }
+]

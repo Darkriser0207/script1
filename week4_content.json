@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Week 4 Programming Exercise 1: Object-Oriented Programming",
+    "explanation": "Classes, objects, inheritance, and encapsulation",
+    "answer": "// Week 4 Exercise 1 Solution\npublic class Solution {\n    // Solution code goes here\n}"
+  },
+  {
+    "question": "Week 4 Programming Exercise 2: Interfaces and Abstraction",
+    "explanation": "Creating and implementing interfaces",
+    "answer": "// Week 4 Exercise 2 Solution\npublic class Solution {\n    // Solution code goes here\n}"
+  }
+]

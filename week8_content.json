@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Week 8 Programming Exercise 1: Multithreading",
+    "explanation": "Parallel processing and thread synchronization",
+    "answer": "// Week 8 Exercise 1 Solution\npublic class Solution {\n    // Solution code goes here\n}"
+  },
+  {
+    "question": "Week 8 Programming Exercise 2: Network Programming",
+    "explanation": "Client-server communication",
+    "answer": "// Week 8 Exercise 2 Solution\npublic class Solution {\n    // Solution code goes here\n}"
+  }
+]

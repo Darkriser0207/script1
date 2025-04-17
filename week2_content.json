@@ -1,0 +1,17 @@
+[
+  {
+    "question": "Automata Fix Q4: Create a Java program that takes an integer n as input and prints a pattern of stars where the first line has n stars, the second line has n-1 stars, and so on until the last line has 1 star.",
+    "explanation": "Decreasing star pattern using nested loops.",
+    "answer": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int n = scanner.nextInt();\n        \n        for (int i = n; i >= 1; i--) {\n            for (int j = 1; j <= i; j++) {\n                System.out.print(\"*\");\n            }\n            System.out.println();\n        }\n        scanner.close();\n    }\n}"
+  },
+  {
+    "question": "Automata Fix Q5: Create a Java program that reads in a string and prints out the number of vowels in the string. The program should count both uppercase and lowercase vowels (a, e, i, o, u).",
+    "explanation": "String processing to count vowels in Java.",
+    "answer": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.println(\"Enter a string:\");\n        String input = scanner.nextLine();\n        \n        int vowelCount = 0;\n        String vowels = \"aeiouAEIOU\";\n        \n        for (int i = 0; i < input.length(); i++) {\n            char c = input.charAt(i);\n            if (vowels.indexOf(c) != -1) {\n                vowelCount++;\n            }\n        }\n        \n        System.out.println(\"Number of vowels: \" + vowelCount);\n        scanner.close();\n    }\n}"
+  },
+  {
+    "question": "Automata Fix Q6: Write a Java program that checks if a given number is a palindrome. A palindrome number reads the same forward and backward (e.g., 121, 1221, 12321).",
+    "explanation": "Number palindrome checking logic in Java.",
+    "answer": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.println(\"Enter a number:\");\n        int num = scanner.nextInt();\n        \n        int originalNum = num;\n        int reversedNum = 0;\n        \n        while (num > 0) {\n            int digit = num % 10;\n            reversedNum = reversedNum * 10 + digit;\n            num /= 10;\n        }\n        \n        if (originalNum == reversedNum) {\n            System.out.println(originalNum + \" is a palindrome.\");\n        } else {\n            System.out.println(originalNum + \" is not a palindrome.\");\n        }\n        scanner.close();\n    }\n}"
+  }
+]
