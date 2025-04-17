@@ -28,10 +28,10 @@
     "question": "Consider a scenario where you are tasked with organizing the different possible subsequences of a word into sorted order. You are given a string, and your goal is to find and display all the contiguous subsequences (subarrays) of that string.",
     "explanation": "--NA--",
     "answer": "import java.util.Scanner;\nclass Main\n{\n    public static void main(String[] args)\n    {\n        Scanner sc=new Scanner(System.in);\n        String s=sc.nextLine().toLowerCase();\n        sc.close();\n        int n=s.length();\n        int totalSubstrings=(n*(n+1))/2;\n        String[] substrings=new String[totalSubstrings];\n        int index=0;\n        for(int i=0;i<n;i++)\n        {\n            for(int j=i+1;j<=n;j++)\n            {\n                substrings[index++]=s.substring(i,j);\n            }\n        }\n        for(int i =0; i<totalSubstrings-1;i++)\n        {\n            for(int j=i+1;j<totalSubstrings;j++)\n            {\n                if(substrings[i].compareTo(substrings[j])>0)\n                {\n                    String temp=substrings[i];\n                    substrings[i]=substrings[j];\n                    substrings[j]=temp;\n                }\n            }\n        }\n        for(String sub:substrings)\n        {\n            System.out.println(sub);\n        }\n    }\n}"
-}
-
-  
-
-
-
+  },
+  {
+    "question": "Kunal is developing a software tool that requires him to efficiently determine the length of the longest substring without repeating characters from a given string. This capability is crucial for optimizing search functionality within large text data. The program reads a string and calculates the length of the longest substring that contains unique characters.",
+    "explanation": "--NA--",
+    "answer": "import java.util.*;\nclass LongestUniqueSubstring\n{\n    public static int lengthOfLongestSubstring(String s)\n    {\n        int[] charIndex=new int[256];\n        Arrays.fill(charIndex,-1);\n        int left=0,maxLength=0;\n        for(int right=0;right<s.length();right++)\n        {\n            if(charIndex[s.charAt(right)]>=left)\n            {\n                left=charIndex[s.charAt(right)]+1;\n            }\n            charIndex[s.charAt(right)]=right;\n            maxLength=Math.max(maxLength,right-left+1);\n        }\n        return maxLength;\n    }\n    public static void main(String[] args)\n    {\n        Scanner sc=new Scanner(System.in);\n        String input=sc.nextLine().trim();\n        System.out.println(lengthOfLongestSubstring(input));\n        sc.close();\n    }\n}"
+  }
 ]
