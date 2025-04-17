@@ -9,4 +9,14 @@
     "explanation": "--NA--",
     "answer": "import java.util.Scanner;\nclass Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        double h=scanner.nextDouble();\n        double w=scanner.nextDouble();\n        double bmi=w/(h*h);\n        System.out.printf(\"BMI: %.2f\\n\", bmi);\n        if (bmi<=18.5)\n        {\n            System.out.println(\"Classification: Underweight\");\n        }\n        else if((bmi>=18.6)&&(bmi<=24.9))\n        {\n            System.out.println(\"Classification: Normal Weight\");\n        }\n        else if((bmi>=25)&&(bmi<=29.9))\n        {\n            System.out.println(\"Classification: Overweight\");\n        }\n        else\n        {\n            System.out.println(\"Classification: Obese\");\n        }\n        scanner.close();\n    }\n}"
   }
+  {
+    "question": "James, a mathematics teacher, is developing a programming exercise to help his students practice continuously summing the digits of a number until it becomes a single-digit integer. He wants to create a simple program using a 'while' loop that takes a positive integer input and generates the final single-digit result.",
+    "explanation": "--NA--",
+    "answer": "import java.util.Scanner;\nclass SumDigits\n{\n    public static void main(String[] args)\n    {\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int digsum=n;\n        while(digsum>10)\n        {\n            int temp=digsum,sum=0;\n            int rem=0;\n            while(temp>0)\n            {\n                rem=temp%10;\n                sum+=rem;\n                temp/=10;\n                digsum=sum;\n            }\n        }\n        System.out.println(\"The single-digit sum of \"+n+\" is \"+digsum+\".\");\n    }\n}"
+  },
+  {
+    "question": "Ravi wants to estimate the total utility bill for a household based on the consumption of electricity, water, and gas.",
+    "explanation": "--NA--",
+    "answer": "import java.util.Scanner;\nclass ElectricityBill\n{\n    public static void main(String[] args)\n    {\n        Scanner sc=new Scanner(System.in);\n        double eu=sc.nextDouble();\n        double wu=sc.nextDouble();\n        double gu=sc.nextDouble();\n        double tc=(eu*0.12)+(wu*0.05)+(gu*0.08);\n        double tfc=0;\n        if (tc>=100)\n        {\n            tfc=0.9*tc;\n        }\n        else if((tc>=50)&&(tc<=99.99))\n        {\n            tfc=0.95*tc;\n        }\n        else\n        {\n            tfc=tc;\n        }\n        System.out.printf(\"%.2f\",tfc);\n    }\n}"
+  }
 ]
