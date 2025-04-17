@@ -13,6 +13,18 @@
   "question": "Chetan needs to analyze different strings to determine the count of vowels and check if vowels are present.",
   "explanation": "--NA--",
   "answer": "import java.util.Scanner;\n\nclass Main {\n\n    // Function to count vowels in a string and check if vowels are present\n    public static void countAndCheckVowels(String str) {\n        int vowelCount = 0;\n        boolean vowelsPresent = false;\n        // Convert the string to lowercase to handle both lowercase and uppercase vowels\n        str = str.toLowerCase();\n\n        for (int i = 0; i < str.length(); i++) {\n            char ch = str.charAt(i);\n            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {\n                vowelCount++;\n                vowelsPresent = true;\n            }\n        }\n\n        System.out.println(\"Number of vowels: \" + vowelCount);\n        if (vowelsPresent) {\n            System.out.println(\"Vowels are present.\");\n        } else {\n            System.out.println(\"Vowels are not present.\");\n        }\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String input = scanner.nextLine().trim();\n        scanner.close();\n\n        countAndCheckVowels(input);\n    }\n}"
-}
+  },
+  {
+    "question": "Sarah is organizing a letter-counting game for her friends. She has a string of letters and wants to identify the first letter that appears more than once. She needs the result to determine the winner of her game.",
+    "explanation": "--NA--",
+    "answer": "import java.util.Scanner;\nclass Main\n{\n    public static void main(String[] args)\n    {\n        Scanner sc=new Scanner(System.in);\n        String S=sc.nextLine();\n        for(int i=1;i<S.length();i++)\n        {\n            for(int j=0;j<i;j++)\n            {\n                if(S.charAt(i)==S.charAt(j))\n                {\n                    System.out.println(S.charAt(i));\n                    return;\n                }\n            }\n        }\n    }\n}"
+  },
+  {
+    "question": "Robin is fascinated by ancient Roman numerals and wants to create a program to convert decimal numbers to Roman numerals. He needs your help to complete the program.",
+    "explanation": "--NA--",
+    "answer": "// You are using Java\nimport java.util.Scanner;\nclass Main\n{\n    public static String intToRoman(int num)\n    {\n        String[] romanSymbols={\"M\",\"CM\",\"D\",\"CD\",\"C\",\"XC\",\"L\",\"XL\",\"X\",\"IX\",\"V\",\"IV\",\"I\"};\n        int[] values={1000,900,500,400,100,90,50,40,10,9,5,4,1};\n        StringBuilder roman=new StringBuilder();\n        for(int i=0;i<values.length;i++)\n        {\n            while(num>=values[i])\n            {\n                roman.append(romanSymbols[i]);\n                num-=values[i];\n            }\n        }\n        return roman.toString();\n    }\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int num=sc.nextInt();\n        System.out.println(intToRoman(num));\n        sc.close();\n    }\n}"
+  }
+
+
 
 ]
