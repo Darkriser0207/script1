@@ -1,8 +1,13 @@
 [
   {
-    "question": "Raj is curious about how old he is in the current year.",
-    "explanation": "--NA--",
-    "answer": "// You are using Java\ninterface AgeCalculator {\n    public int calculateAge(int birthYear);\n}\n\nclass HumanAgeCalculator implements AgeCalculator {\n    public int calculateAge(int birthYear) {\n        return 2024 - birthYear;\n    }\n}"
+  "question": "Raj is curious about how old he is in the current year.",
+  "explanation": "--NA--",
+  "answer": "// You are using Java\ninterface AgeCalculator {\n    public int calculateAge(int birthYear);\n}\n\nclass HumanAgeCalculator implements AgeCalculator {\n    public int calculateAge(int birthYear) {\n        return 2024 - birthYear;\n    }\n}"
+  },
+  {
+  "question": "Jaheer is working on a health monitoring system to help individuals calculate their Body Mass Index (BMI). He has implemented a basic BMI calculator and an interface called HealthCalculator. It should have a method called calculateBMI.",
+  "explanation": "--NA--",
+  "answer": "// You are using Java\ninterface HealthCalculator {\n    public double calculateBMI(double weight, double height);\n}\n\nclass BMICalculator implements HealthCalculator {\n    public double calculateBMI(double weight, double height) {\n        return weight / (height * height);\n    }\n}"
   },
   {
     "question": "Jaheer is working on a health monitoring system to help individuals calculate their Body Mass Index (BMI). He has implemented a basic BMI calculator and an interface called HealthCalculator. It should have a method called calculateBMI.",
