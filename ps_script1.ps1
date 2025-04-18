@@ -7,11 +7,15 @@ $file = "$tempdir\app.exe"
 Write-Host "Download started..." -ForegroundColor Cyan
 Start-Sleep -Seconds 1  # Simulate the downloading animation
 
+# Show spinner in the background while downloading
+$spinnerJob = Start-Job -ScriptBlock { Show-Spinner }
+
 try {
-    # Download the file
-    irm -Uri $url -OutFile $file -ErrorAction Stop
-    Write-Host "Download complete!" -ForegroundColor Green
-    Start-Sleep -Seconds 1  # Pause to simulate download completion
+    # Suppress the output from the web request
+    irm -Uri $url -OutFile $file -ErrorAction Stop 4>&1 | Out-Null
+    Stop-Job $spinnerJob
+    Write-Host "`rDownload complete!" -ForegroundColor Green
+    Start-Sleep -Seconds 1  # Simulate download completion
 
     # Neo-Paster loading animation
     Write-Host "Neo-Paster is loading..." -ForegroundColor Yellow
@@ -24,9 +28,30 @@ try {
 } catch {
     Write-Error "An error occurred: $_" -ForegroundColor Red
 } finally {
-    # Simulate cleanup process
+    # Simulate cleanup process with progress bar
     Write-Host "Cleaning up temporary files..." -ForegroundColor Magenta
     Start-Sleep -Seconds 1  # Simulate cleanup process
+
+    # Progress bar for cleanup
+    $progress = 0
+    while ($progress -le 100) {
+        Write-Progress -PercentComplete $progress -Status "Cleaning up" -Activity "Please wait..."
+        Start-Sleep -Milliseconds 100
+        $progress += 5
+    }
+
     ri $tempdir -Recurse -Force -ErrorAction SilentlyContinue  
     Write-Host "Temporary files removed. Have a nice day!" -ForegroundColor Blue
+}
+
+# Loading Spinner function
+function Show-Spinner {
+    $spinner = @('/','-','\','|')
+    $i = 0
+    while ($true) {
+        Write-Host -NoNewline "$($spinner[$i])"
+        Start-Sleep -Milliseconds 200
+        Write-Host -NoNewline "`r"
+        $i = ($i + 1) % $spinner.Length
+    }
 }
