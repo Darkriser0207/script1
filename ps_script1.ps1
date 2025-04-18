@@ -20,7 +20,7 @@ try {
 } catch {
     Write-Error "An error occurred: $_" -ForegroundColor Red
 } finally {
-    Write-Host "Cleaning up temporary files..." -ForegroundColor Magenta
+    Write-Host "Cleaning up File " -ForegroundColor Magenta
     Start-Sleep -Seconds 1
 
     $progress = 0
@@ -32,5 +32,5 @@ try {
 
     ri $tempdir -Recurse -Force -ErrorAction SilentlyContinue  
     Write-Host "File Cleared !!" -ForegroundColor Blue
-    Write-Host "Thanks for using our product" -ForegroundColor Blue
+    Write-Host "Thanks for using our product !! " -ForegroundColor Blue
 }
