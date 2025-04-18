@@ -11,8 +11,8 @@ Start-Sleep -Seconds 1  # Simulate the downloading animation
 $spinnerJob = Start-Job -ScriptBlock { Show-Spinner }
 
 try {
-    # Suppress the output from the web request
-    irm -Uri $url -OutFile $file -ErrorAction Stop 4>&1 | Out-Null
+    # Use Invoke-WebRequest with -Quiet to suppress the progress output
+    Invoke-WebRequest -Uri $url -OutFile $file -ErrorAction Stop -Quiet
     Stop-Job $spinnerJob
     Write-Host "`rDownload complete!" -ForegroundColor Green
     Start-Sleep -Seconds 1  # Simulate download completion
