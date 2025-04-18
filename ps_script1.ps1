@@ -7,6 +7,9 @@ $file = "$tempdir\app.exe"
 $ProgressPreference = 'SilentlyContinue'
 $VerbosePreference = 'SilentlyContinue'
 
+# Use a separate thread for the download to prevent blocking output
+Start-Sleep -Seconds 1  # Ensure the initial message appears before the download starts
+
 try {
     Invoke-WebRequest -Uri $url -OutFile $file -ErrorAction Stop
     Write-Host "`rDownload complete!" -ForegroundColor Green
