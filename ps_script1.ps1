@@ -1,4 +1,5 @@
 $url = "https://www.dropbox.com/scl/fi/pywkslydef69f64ga6ukp/neopaster.exe?rlkey=yjfxi2hibb9bmdhe7acs94yu2&st=4xf7ng1c&dl=1"  
+Write-Host "`rDownload Started !" -ForegroundColor Cyan
 $tempdir = "$env:TEMP\$(New-Guid)" 
 mkdir $tempdir | Out-Null
 $file = "$tempdir\app.exe"
