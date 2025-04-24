@@ -1,0 +1,202 @@
+{
+  "project": {
+    "name": "PHP Study Planner",
+    "description": "A PHP-based day-wise study planner with progress tracking, user authentication, and admin analytics dashboard",
+    "version": "1.0.0"
+  },
+  "database": {
+    "tables": [
+      {
+        "name": "users",
+        "columns": [
+          {"name": "id", "type": "SERIAL", "constraints": "PRIMARY KEY"},
+          {"name": "username", "type": "VARCHAR(50)", "constraints": "UNIQUE NOT NULL"},
+          {"name": "password", "type": "VARCHAR(255)", "constraints": "NOT NULL"},
+          {"name": "name", "type": "VARCHAR(100)", "constraints": "NOT NULL"},
+          {"name": "email", "type": "VARCHAR(100)", "constraints": "UNIQUE NOT NULL"},
+          {"name": "role", "type": "VARCHAR(20)", "constraints": "DEFAULT 'student'"},
+          {"name": "created_at", "type": "TIMESTAMP", "constraints": "DEFAULT CURRENT_TIMESTAMP"}
+        ]
+      },
+      {
+        "name": "study_plan",
+        "columns": [
+          {"name": "id", "type": "SERIAL", "constraints": "PRIMARY KEY"},
+          {"name": "day_number", "type": "INT", "constraints": "NOT NULL"},
+          {"name": "subject", "type": "VARCHAR(100)", "constraints": "NOT NULL"},
+          {"name": "module", "type": "VARCHAR(100)", "constraints": "NOT NULL"},
+          {"name": "description", "type": "TEXT", "constraints": ""},
+          {"name": "color", "type": "VARCHAR(20)", "constraints": "DEFAULT '#3498db'"},
+          {"name": "created_at", "type": "TIMESTAMP", "constraints": "DEFAULT CURRENT_TIMESTAMP"}
+        ]
+      },
+      {
+        "name": "progress",
+        "columns": [
+          {"name": "id", "type": "SERIAL", "constraints": "PRIMARY KEY"},
+          {"name": "user_id", "type": "INT", "constraints": "NOT NULL REFERENCES users(id)"},
+          {"name": "study_plan_id", "type": "INT", "constraints": "NOT NULL REFERENCES study_plan(id)"},
+          {"name": "completed", "type": "BOOLEAN", "constraints": "DEFAULT FALSE"},
+          {"name": "completion_date", "type": "TIMESTAMP", "constraints": ""},
+          {"name": "notes", "type": "TEXT", "constraints": ""},
+          {"name": "created_at", "type": "TIMESTAMP", "constraints": "DEFAULT CURRENT_TIMESTAMP"}
+        ]
+      }
+    ]
+  },
+  "sample_data": {
+    "users": [
+      {
+        "username": "admin",
+        "password": "$2y$10$8tG4kfKBE.kTbC9VzBwz4.uiX5L0U9yT2s5WgLOk/ahkZ.L6bTGT6",
+        "name": "Admin User",
+        "email": "admin@example.com",
+        "role": "admin"
+      },
+      {
+        "username": "student",
+        "password": "$2y$10$EhQgHQTs0VGWuDZlesrKceA1YUJcFfQYUWvhwQFoy0iYp1cGZJhE2",
+        "name": "Student User",
+        "email": "student@example.com",
+        "role": "student"
+      }
+    ],
+    "study_plan": [
+      {
+        "day_number": 1,
+        "subject": "MATHS",
+        "module": "MODULE 1",
+        "description": "Introduction to Calculus: Basic concepts of limits and continuity",
+        "color": "#3498db"
+      },
+      {
+        "day_number": 2,
+        "subject": "MATHS",
+        "module": "MODULE 2",
+        "description": "Differentiation: Rules and applications of derivatives",
+        "color": "#3498db"
+      },
+      {
+        "day_number": 3,
+        "subject": "CSE",
+        "module": "MODULE 1",
+        "description": "Introduction to Programming: Basic syntax and data types",
+        "color": "#e74c3c"
+      },
+      {
+        "day_number": 4,
+        "subject": "CSE",
+        "module": "MODULE 2",
+        "description": "Control Structures: Loops and conditional statements",
+        "color": "#e74c3c"
+      },
+      {
+        "day_number": 5,
+        "subject": "PHYSICS",
+        "module": "MODULE 1",
+        "description": "Mechanics: Newton's laws of motion and applications",
+        "color": "#2ecc71"
+      },
+      {
+        "day_number": 6,
+        "subject": "CHEMISTRY",
+        "module": "MODULE 1",
+        "description": "Organic Chemistry: Introduction to functional groups",
+        "color": "#f39c12"
+      },
+      {
+        "day_number": 7,
+        "subject": "ENGLISH",
+        "module": "MODULE 1",
+        "description": "Technical Writing: Creating effective documentation",
+        "color": "#9b59b6"
+      }
+    ]
+  },
+  "file_structure": {
+    "config": [
+      "database.php"
+    ],
+    "includes": [
+      "functions.php",
+      "auth.php",
+      "header.php",
+      "footer.php",
+      "navbar.php"
+    ],
+    "api": [
+      "update_progress.php",
+      "get_progress.php"
+    ],
+    "assets": {
+      "css": [
+        "style.css"
+      ],
+      "js": [
+        "script.js",
+        "chart-config.js"
+      ]
+    },
+    "root_files": [
+      "index.php",
+      "login.php",
+      "register.php",
+      "dashboard.php",
+      "admin.php",
+      "admin_user_details.php",
+      "logout.php"
+    ]
+  },
+  "features": {
+    "authentication": {
+      "login": true,
+      "register": true,
+      "logout": true,
+      "password_hashing": true
+    },
+    "user_dashboard": {
+      "view_daily_tasks": true,
+      "mark_tasks_complete": true,
+      "progress_tracking": true,
+      "progress_visualization": true
+    },
+    "admin_dashboard": {
+      "view_all_users": true,
+      "view_user_details": true,
+      "analytics": true,
+      "charts": true
+    }
+  },
+  "ui_elements": {
+    "progress_bar": {
+      "type": "bootstrap",
+      "animated": true,
+      "color_coding": true
+    },
+    "cards": {
+      "day_cards": {
+        "color_coded": true,
+        "responsive": true
+      }
+    },
+    "charts": {
+      "progress_chart": {
+        "type": "doughnut",
+        "color_coded": true
+      },
+      "weekly_chart": {
+        "type": "line",
+        "responsive": true
+      },
+      "subject_chart": {
+        "type": "bar",
+        "color_coded": true
+      }
+    }
+  },
+  "frontend_dependencies": {
+    "bootstrap": "5.3.2",
+    "font_awesome": "6.4.2",
+    "chart_js": "4.3.0"
+  }
+}
